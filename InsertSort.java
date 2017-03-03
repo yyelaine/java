@@ -1,20 +1,32 @@
-package practice;
-import org.rut.util.algorithm.SortUtil;
+package sorting;
 
-public class InsertSort implements SortUtil.sort{
+public class InsertSort {
 
 	/**
 	 * @param args
 	 */
-	public void sort(int[] data) {
-		// TODO Auto-generated method stub
-		int temp;
-		for(int i = 1;i<data.length;i++)
-			for(int j = i;(j>0)&&(data[j]<data[j-1]);j--)
+	public static void insertsort(int[] array){
+		for(int i=1;i<array.length;i++)
+		{
+			for(int j=i;j>0;j--)
 			{
-				SortUtil.swap(data,j,j-1);
+				if(array[j]<array[j-1])
+				{
+					int temp=array[j];
+					array[j]=array[j-1];
+					array[j-1]=temp;
+				}
 			}
-
+		}
+	}
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		int [] array = {1,23,4,56,32,76,90,10};
+		InsertSort.insertsort(array);
+		for(int i=0;i<array.length;i++)
+		{
+			System.out.print(array[i]+" ");
+		}
 	}
 
 }
